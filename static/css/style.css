@@ -1,0 +1,105 @@
+/* Remove the navbar's default margin-bottom and rounded borders */
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {height: 100%}
+
+/* Set gray background color and 100% height */
+.sidenav {
+    padding-top: 20px;
+    background-color: #f1f1f1;
+}
+.sidenav p a {
+    color: black;
+    display: block;
+    text-decoration: none;
+}
+
+.sidenav p a:link, .sidenav p a:visited {
+    color: black;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.sidenav p a:hover, .sidenav p a:active {
+    background-color: gray;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+
+    background-color: #555;
+    color: white;
+    padding: 15px;
+}
+
+header {
+    background-color: gainsboro;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+    .sidenav {
+        height: auto;
+        padding: 15px;
+    }
+    .row.content {height:auto;}
+}
+
+h1{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 30px;
+}
+
+.form-login {
+    margin-top: 100px;
+    background-color: dodgerblue;
+    padding-top: 1px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 15px;
+    border-color:#d2d2d2;
+    border-width: 5px;
+    box-shadow:0 1px 0 #cfcfcf;
+}
+
+h4 {
+    border:0 solid #fff;
+    font-weight: bold;
+    padding-bottom:10px;
+    text-align: center;
+}
+
+.form-control {
+    border-radius: 10px;
+}
+
+.wrapper {
+    text-align: center;
+}
+
+a{
+    color: black;
+}
+
+.gray {
+    background-color: #cfcfcf;
+}
+
+/*list*/
+.list-group-item:hover, a.list-group-item:focus {text-decoration: none;background-color: rgb(245, 245, 245);}
+.list-group { margin-bottom:0px; }
