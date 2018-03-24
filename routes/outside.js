@@ -15,7 +15,7 @@ module.exports = function (app) {
      * Main page
      */
     app.get('/',
-        console.log('Welcome')
+        renderMW(objectRepository, 'index')
     );
 
     /**

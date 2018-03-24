@@ -1,0 +1,39 @@
+<% include header %>
+
+<% include sidebar %>
+
+<div class="col-sm-5 text-left">
+
+    <h1>List of the Recipes:</h1>
+
+    <form method="post" action="/recipes">
+        <div class="form-group">
+            <label>Category:</label>
+            <select class='form-control' id='category_id' name='category_id'>
+                <option value='%'>ALL RECIPE</option>
+                <option value='%'>Soup</option>
+                <option value='%'>Main</option>
+                <option value='%'>Dessert</option>
+            </select>
+        </div>
+        <button name="Search" type="submit" value="ok" class="btn btn-info">Search</button>
+    </form>
+
+    <br/>
+
+    <label>Recipes:</label>
+    <ul class="list-group">
+        <a href=/recipes/:recipeid>
+            <li class="list-group-item list-group-item-action">
+                <img src="../img/halaszle.jpg" alt="fishsoup" style="max-width:150px; max-height: 150px;">
+                <label>Fish soup</label>
+            </li>
+        </a>
+    </ul>
+
+    <a href="/recipes/new">
+        <button type="button" class="btn btn-primary">Add New Recipe</button>
+    </a>
+
+</div>
+<% include footer %>

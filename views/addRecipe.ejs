@@ -1,0 +1,41 @@
+<% include header %>
+
+<% include sidebar %>
+
+<div class="col-sm-6 text-left">
+
+    <h2>Add new Recipe</h2>
+    <form method="post" action="/recipes/new">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" placeholder="Name of the recipe" name="name"
+                   required>
+        </div>
+        <div class="form-group">
+            <label for="name">Picture:</label>
+            <input type="file" class="form-control" id="img" name="img" required>
+        </div>
+        <div class="form-group">
+            <label for="ingredients">Ingredients:</label>
+            <input type="text" class="form-control" id="ingredients"
+                   placeholder="Give the ingredients of the recipe" name="ingredients">
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea class="form-control" rows="5" id="description"
+                      placeholder="Give the description of the recipe" name="description"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Category:</label>
+            <select class='form-control' id='category' name='category' required>
+                <option value="Soup">Soup</option>
+                <option value="Main">Main</option>
+                <option value="Dessert">Dessert</option>
+            </select>
+        </div>
+        <button name="Add" type="submit" value="ok" class="btn btn-success">Save</button>
+        <a class="btn btn-warning" href="/recipes">Cancel</a>
+    </form>
+</div>
+
+<% include footer %>

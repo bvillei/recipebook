@@ -21,7 +21,7 @@ module.exports = function (app) {
     app.use('/recipes/new',
         authMW(objectRepository),
         updateRecipeMW(objectRepository),
-        renderMW(objectRepository, 'recipe_edit')
+        renderMW(objectRepository, 'addRecipe')
     );
 
     /**
@@ -32,7 +32,7 @@ module.exports = function (app) {
         authMW(objectRepository),
         checkPrivilegeMW(objectRepository),
         getRecipeMW(objectRepository),
-        renderMW(objectRepository, 'recipe')
+        renderMW(objectRepository, 'showRecipe')
     );
 
 
@@ -45,7 +45,7 @@ module.exports = function (app) {
         checkPrivilegeMW(objectRepository),
         getRecipeMW(objectRepository),
         updateRecipeMW(objectRepository),
-        renderMW(objectRepository, 'recipe_edit')
+        renderMW(objectRepository, 'addRecipe')
     );
 
     /**
@@ -69,7 +69,7 @@ module.exports = function (app) {
 
     app.use('/recipes',
         getRecipeListMW(objectRepository),
-        renderMW(objectRepository, 'recipes')
+        renderMW(objectRepository, 'listRecipe')
     );
 
 };

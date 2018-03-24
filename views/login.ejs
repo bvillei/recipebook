@@ -1,0 +1,25 @@
+<% include header %>
+
+<div class="col-md-offset-5 col-md-3">
+    <div class="form-login">
+        <h2>Login</h2>
+        <p>Please fill in your credentials to login.</p>
+        <form action=# method="post">
+            <div class="form-group">
+                <label>Username:<sup>*</sup></label>
+                <input type="text" name="username" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Password:<sup>*</sup></label>
+                <input type="password" name="password" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Submit">
+            </div>
+            <p>Don't have an account? <a href="/register">Sign up now</a>.</p>
+            <p>Forgot your password? <a href="/reminder">Send reminder</a>.</p>
+        </form>
+    </div>
+</div>
+
+<% include footer %>
