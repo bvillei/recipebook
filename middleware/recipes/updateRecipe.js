@@ -12,7 +12,31 @@ module.exports = function (objectrepository) {
 
     return function (req, res, next) {
 
-        return next();
+        if ((typeof req.body.name === 'undefined') ||
+            (typeof req.body.ingredients === 'undefined')) {
+            return next();
+        }
+
+        var recipe = undefined;
+        if (typeof res.locals.recipe !== 'undefined') {
+            recipe = res.locals.recipe;
+        } else {
+            recipe = new recipeModel();
+        }
+        recipe.name = req.body.name;
+        recipe.category = req.body.category;
+        // recipe.image = req.body.image;
+        recipe.ingredients = req.body.ingredients;
+        recipe.description = req.body.description;
+        recipe._owner = req.session.userid;
+
+        recipe.save(function (err, result) {
+            if (err) {
+                return next(err);
+            }
+
+            return res.redirect('/recipe/' + result.id);
+        });
     };
 
 };

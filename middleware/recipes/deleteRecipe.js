@@ -1,16 +1,21 @@
-var requireOption = require('../common').requireOption;
-
 /**
- * Delete the recipe object
+ * Delete the task object, if its already loaded
  */
-
 module.exports = function (objectrepository) {
-
-    var recipeModel = requireOption(objectrepository, 'recipeModel');
-
     return function (req, res, next) {
 
-        return next();
+        if (typeof res.locals.recipe === 'undefined') {
+            return next();
+        }
+
+        res.locals.recipe.remove(function (err) {
+            if (err) {
+                return next(err);
+            }
+
+            //redirect to all recipes
+            res.redirect('/recipes/');
+        });
     };
 
 };

@@ -10,7 +10,16 @@ module.exports = function (objectrepository) {
 
     return function (req, res, next) {
 
-        return next();
-    };
+        recipeModel.find({
+
+        }).populate('_owner').exec(function (err, results) {
+            if (err) {
+                return next(new Error('Error getting recipes'));
+            }
+
+            res.locals.recipes = results;
+            return next();
+        });
+    };;
 
 };
