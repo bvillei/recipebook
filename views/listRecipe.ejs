@@ -1,12 +1,11 @@
-<% include header %>
-
-<% include sidebar %>
+<%- include('header') %>
+<%- include('sidebar') %>
 
 <div class="col-sm-5 text-left">
 
     <h1>List of the Recipes:</h1>
 
-    <form method="post" action="/recipes">
+    <form method="POST">
         <div class="form-group">
             <label>Category:</label>
             <select class='form-control' id='category_id' name='category_id'>
@@ -22,18 +21,21 @@
     <br/>
 
     <label>Recipes:</label>
+    <% recipes.forEach(function(item){ %>
     <ul class="list-group">
-        <a href=/recipes/:recipeid>
+        <a href="/recipe/<%= item.id %>">
             <li class="list-group-item list-group-item-action">
-                <img src="../img/halaszle.jpg" alt="fishsoup" style="max-width:150px; max-height: 150px;">
-                <label>Fish soup</label>
+                <img src=<%= item.image %> style="max-width:150px; max-height: 150px;">
+                <label><%= item.name %></label>
             </li>
         </a>
     </ul>
+    <% }); %>
 
     <a href="/recipes/new">
         <button type="button" class="btn btn-primary">Add New Recipe</button>
     </a>
 
 </div>
-<% include footer %>
+
+<%- include('footer') %>
