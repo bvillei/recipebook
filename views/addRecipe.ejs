@@ -1,5 +1,4 @@
 <%- include('header') %>
-
 <%- include('sidebar') %>
 
 <div class="col-sm-6 text-left">
@@ -8,24 +7,28 @@
     <form method="POST">
         <div class="form-group">
             <label for="name">Name:</label>
-            <input type="text" class="form-control" id="name" placeholder="Name of the recipe" name="name" required>
+            <input type="text" class="form-control" id="name" placeholder="Name of the recipe" name="name"
+                   value="<%= (typeof recipe !== 'undefined') ? recipe.name : '' %>" required>
         </div>
         <div class="form-group">
             <label for="img">Picture:</label>
-            <input type="file" class="form-control" id="img" name="img">
+            <input type="file" class="form-control" id="img" name="img"
+                   value="<%= (typeof recipe !== 'undefined') ? recipe.image : '' %>">
         </div>
         <div class="form-group">
             <label for="ingredients">Ingredients:</label>
             <input type="text" class="form-control" id="ingredients"
-                   placeholder="Give the ingredients of the recipe" name="ingredients">
+                   placeholder="Give the ingredients of the recipe" name="ingredients"
+                   value="<%= (typeof recipe !== 'undefined') ? recipe.ingredients : '' %>">
         </div>
         <div class="form-group">
             <label for="description">Description:</label>
-            <textarea class="form-control" rows="5" id="description"
-                      placeholder="Give the description of the recipe" name="description"></textarea>
+            <input type="text" class="form-control" id="description"
+                   placeholder="Give the description of the recipe" name="description"
+                   value="<%= (typeof recipe !== 'undefined') ? recipe.description : '' %>"</input>
         </div>
         <div class="form-group">
-            <label>Category:</label>
+            <label for="category">Category:</label>
             <select class='form-control' id='category' name='category' required>
                 <option value="Soup">Soup</option>
                 <option value="Main">Main</option>
@@ -33,11 +36,10 @@
             </select>
         </div>
         <% if (typeof recipe !== 'undefined'){ %>
-        <input type="submit" class="btn btn-success" value="New recipe"/>
-        <% }else{ %>
         <input type="submit" class="btn btn-success" value="Save recipe"/>
+        <% }else{ %>
+        <input type="submit" class="btn btn-success" value="New recipe"/>
         <% } %>
-        <!--<button name="Add" type="submit" value="ok" class="btn btn-success">Save</button>-->
         <a class="btn btn-warning" href="/recipes">Cancel</a>
     </form>
 </div>

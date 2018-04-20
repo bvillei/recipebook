@@ -27,18 +27,6 @@ module.exports = function (app) {
     );
 
     /**
-     * Show the recipe details
-     */
-
-    app.use('/recipe/:recipeid',
-        authMW(objectRepository),
-        checkPrivilegeMW(objectRepository),
-        getRecipeMW(objectRepository),
-        renderMW(objectRepository, 'showRecipe')
-    );
-
-
-    /**
      * Edit the recipe details
      */
 
@@ -63,6 +51,17 @@ module.exports = function (app) {
         function (req, res, next) {
             return res.redirect('/recipes');
         }
+    );
+
+    /**
+     * Show the recipe details
+     */
+
+    app.use('/recipe/:recipeid',
+        authMW(objectRepository),
+        checkPrivilegeMW(objectRepository),
+        getRecipeMW(objectRepository),
+        renderMW(objectRepository, 'showRecipe')
     );
 
     /**

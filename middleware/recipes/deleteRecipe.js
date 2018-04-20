@@ -1,5 +1,5 @@
 /**
- * Delete the task object, if its already loaded
+ * Delete the recipe object, if its already loaded
  */
 module.exports = function (objectrepository) {
     return function (req, res, next) {
