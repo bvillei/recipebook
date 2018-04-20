@@ -6,12 +6,14 @@ var getRecipeListMW = require('../middleware/recipes/getRecipeList');
 var updateRecipeMW = require ('../middleware/recipes/updateRecipe');
 var getRecipeMW = require ('../middleware/recipes/getRecipe');
 var deleteRecipeMW = require ('../middleware/recipes/deleteRecipe');
-var recipeModel = {};
+
+var recipeModel = require('../models/recipe');
+var userModel = require('../models/user');
 
 module.exports = function (app) {
-
     var objectRepository = {
-        recipeModel: recipeModel
+        recipeModel: recipeModel,
+        userModel: userModel
     };
 
     /**
@@ -28,7 +30,7 @@ module.exports = function (app) {
      * Show the recipe details
      */
 
-    app.use('/recipes/:recipeid',
+    app.use('/recipe/:recipeid',
         authMW(objectRepository),
         checkPrivilegeMW(objectRepository),
         getRecipeMW(objectRepository),
@@ -40,7 +42,7 @@ module.exports = function (app) {
      * Edit the recipe details
      */
 
-    app.use('/recipes/:recipeid/edit',
+    app.use('/recipe/:recipeid/edit',
         authMW(objectRepository),
         checkPrivilegeMW(objectRepository),
         getRecipeMW(objectRepository),
@@ -53,7 +55,7 @@ module.exports = function (app) {
      * - then redirect to /recipes
      */
 
-    app.use('/recipes/:recipeid/delete',
+    app.use('/recipe/:recipeid/delete',
         authMW(objectRepository),
         checkPrivilegeMW(objectRepository),
         getRecipeMW(objectRepository),
