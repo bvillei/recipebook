@@ -1,5 +1,5 @@
 var authMW = require('../middleware/generic/auth');
-var checkPrivilegeMW = require('../middleware/generic/checkPrivilege');
+var checkPrivilegeMW = require('../middleware/recipes/checkPrivilege');
 var renderMW = require('../middleware/generic/render');
 
 var randomRecipeMW = require ('../middleware/recipes/randomRecipe');
@@ -33,8 +33,8 @@ module.exports = function (app) {
 
     app.use('/recipe/:recipeid/edit',
         authMW(objectRepository),
-        checkPrivilegeMW(objectRepository),
         getRecipeMW(objectRepository),
+        checkPrivilegeMW(objectRepository),
         updateRecipeMW(objectRepository),
         renderMW(objectRepository, 'addRecipe')
     );
@@ -46,8 +46,8 @@ module.exports = function (app) {
 
     app.use('/recipe/:recipeid/delete',
         authMW(objectRepository),
-        checkPrivilegeMW(objectRepository),
         getRecipeMW(objectRepository),
+        checkPrivilegeMW(objectRepository),
         deleteRecipeMW(objectRepository),
         function (req, res, next) {
             return res.redirect('/recipes');
@@ -60,7 +60,6 @@ module.exports = function (app) {
 
     app.use('/recipe/:recipeid',
         authMW(objectRepository),
-        checkPrivilegeMW(objectRepository),
         getRecipeMW(objectRepository),
         renderMW(objectRepository, 'showRecipe')
     );
