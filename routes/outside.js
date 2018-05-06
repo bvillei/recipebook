@@ -1,7 +1,6 @@
 var inverseAuthMW = require('../middleware/generic/inverseAuth');
 var checkUserLoginMW = require('../middleware/generic/checkUserLogin');
 var checkUserRegistrationMW = require('../middleware/generic/checkUserRegistration');
-var randomRecipeMW = require('../middleware/recipes/randomRecipe');
 var renderMW = require('../middleware/generic/render');
 var emailSenderMW = require('../middleware/generic/emailSender');
 var logoutMW = require('../middleware/generic/logout');

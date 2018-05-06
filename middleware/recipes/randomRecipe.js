@@ -22,7 +22,7 @@ module.exports = function (objectrepository) {
             recipeModel.findOne().skip(random).exec(
                 function (err, result) {
                     // Tada! random recipe
-                    console.log(result);
+                    // console.log(result);
                     res.locals.recipe = result;
                     return next();
                 });

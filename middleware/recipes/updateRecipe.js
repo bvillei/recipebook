@@ -25,7 +25,7 @@ module.exports = function (objectrepository) {
         }
         recipe.name = req.body.name;
         recipe.category = req.body.category;
-        // recipe.image = req.body.image;
+        recipe.img = req.body.image;
         recipe.ingredients = req.body.ingredients;
         recipe.description = req.body.description;
         recipe._owner = req.session.userid;
