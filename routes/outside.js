@@ -1,6 +1,7 @@
 var inverseAuthMW = require('../middleware/generic/inverseAuth');
 var checkUserLoginMW = require('../middleware/generic/checkUserLogin');
-var checkUserRegistrationMW = require('../middleware/generic/checkUserRegistration')
+var checkUserRegistrationMW = require('../middleware/generic/checkUserRegistration');
+var randomRecipeMW = require('../middleware/recipes/randomRecipe');
 var renderMW = require('../middleware/generic/render');
 var emailSenderMW = require('../middleware/generic/emailSender');
 var logoutMW = require('../middleware/generic/logout');
@@ -11,13 +12,6 @@ module.exports = function (app) {
     var objectRepository = {
         userModel: userModel
     };
-
-    /**
-     * Main page
-     */
-    app.get('/',
-        renderMW(objectRepository, 'index')
-    );
 
     /**
      * Login page

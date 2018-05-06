@@ -2,6 +2,7 @@ var authMW = require('../middleware/generic/auth');
 var checkPrivilegeMW = require('../middleware/generic/checkPrivilege');
 var renderMW = require('../middleware/generic/render');
 
+var randomRecipeMW = require ('../middleware/recipes/randomRecipe');
 var getRecipeListMW = require('../middleware/recipes/getRecipeList');
 var updateRecipeMW = require ('../middleware/recipes/updateRecipe');
 var getRecipeMW = require ('../middleware/recipes/getRecipe');
@@ -73,4 +74,11 @@ module.exports = function (app) {
         renderMW(objectRepository, 'listRecipe')
     );
 
+    /**
+     * Main page
+     */
+    app.use('/',
+        randomRecipeMW(objectRepository),
+        renderMW(objectRepository, 'index')
+    );
 };

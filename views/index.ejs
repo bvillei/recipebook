@@ -10,9 +10,9 @@
         labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
         ut aliquip ex ea commodo consequat.</p>
     <div align="center">
-        <a href=/recipes/:recipeid>
-            <img src="../img/halaszle.jpg" alt="fishsoup" style="max-width:300px; max-height: 300px;">
-            <h2>Fish soup</h2>
+        <a href=/recipe/<%= recipe.id %>>
+            <img src=<%= recipe.image %> alt="picture" style="max-width:300px; max-height: 300px;">
+            <h2><%= recipe.name %></h2>
         </a>
     </div>
 </div>
