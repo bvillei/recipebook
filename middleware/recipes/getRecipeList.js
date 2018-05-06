@@ -10,8 +10,17 @@ module.exports = function (objectrepository) {
 
     return function (req, res, next) {
 
-        recipeModel.find({
+        var search;
 
+        if ((typeof req.body.category !== 'undefined') && (req.body.category !== 'All')) {
+            search = req.body.category;
+        }
+        else {
+            search = /.*/;
+        }
+
+        recipeModel.find({
+            category: search
         }).populate('_owner').exec(function (err, results) {
             if (err) {
                 return next(new Error('Error getting recipes'));
@@ -20,6 +29,7 @@ module.exports = function (objectrepository) {
             res.locals.recipes = results;
             return next();
         });
-    };;
+    };
+    ;
 
 };
