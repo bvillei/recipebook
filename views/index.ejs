@@ -9,12 +9,14 @@
         deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
         labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
         ut aliquip ex ea commodo consequat.</p>
+    <% if(recipe !== null) { %>
     <div align="center">
         <a href=/recipe/<%= recipe.id %>>
             <img src=<%= recipe.image %> alt="picture" style="max-width:300px; max-height: 300px;">
             <h2><%= recipe.name %></h2>
         </a>
     </div>
+    <% } %>
 </div>
 
 <%- include('footer') %>
